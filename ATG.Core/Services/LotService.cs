@@ -1,40 +1,46 @@
 ﻿using ATG.Domain.Models;
 using ATG.Infrastructure.Data.Repositories;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace ATG.Core.Services
 {
     public class LotService : ILotService
     {
-        public Lot GetLot(int id, bool isLotArchived)
+        private readonly IArchivedRepository _archivedRepository;
+        private readonly IFailoverLotRepository _failoverLotRepository;
+        private readonly ILotRepository _lotRepository;
+
+        public LotService(IArchivedRepository archivedRepository, IFailoverLotRepository failoverLotRepository, ILotRepository lotRepository)
         {
-            bool isFailoverModeEnabled = true;
-            int MaxFailedRequests = 50;
+            _archivedRepository = archivedRepository;
+            _failoverLotRepository = failoverLotRepository;
+            _lotRepository = lotRepository;
+        }
+
+        public Lot GetLot(int id, bool isLotArchived, bool isFailoverModeEnabled = true)
+        {
+            int maxFailedRequests = 50;
             Lot lot = null;
 
-            var failoverLots = GetFailOverLotEntries();
+            var failoverLots = _failoverLotRepository.GetFailOverLotEntries();
             var failedRequests = failoverLots.Where(failoverLotsEntry => failoverLotsEntry.DateTime > DateTime.Now.AddMinutes(10)).Count();
-            if ((failedRequests > MaxFailedRequests) && isFailoverModeEnabled)
+
+            if ((failedRequests > maxFailedRequests) && isFailoverModeEnabled)
             {
-                lot = new FailoverLotRepository().GetLot(id);
+                lot = _failoverLotRepository.GetLot(id);
             }
 
             if (lot.IsArchived && isLotArchived)
             {
-                return new ArchivedRepository().GetLot(id);
+                return _archivedRepository.GetLot(id);
             }
             else
             {
-                return new LotRepository().LoadCustomer();
+                return _lotRepository.LoadCustomer();
             }
         }
 
-        public List<FailoverLots> GetFailOverLotEntries()
-        {
-            // return all from fail entries from database
-            return new List<FailoverLots>();
-        }
+
     }
 }

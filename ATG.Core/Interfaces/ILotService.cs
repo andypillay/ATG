@@ -5,7 +5,6 @@ namespace ATG.Core.Services
 {
     public interface ILotService
     {
-        List<FailoverLots> GetFailOverLotEntries();
-        Lot GetLot(int id, bool isLotArchived);
+        Lot GetLot(int id, bool isLotArchived, bool isFailoverModeEnabled = true);
     }
 }
