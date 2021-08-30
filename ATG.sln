@@ -15,6 +15,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ATG.Infrastructure", "ATG.I
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATG.Domain", "ATG.Domain\ATG.Domain.csproj", "{E5CFF087-22BB-4227-89BC-1C557DC42A45}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATG.Infrastructure.Data", "ATG.Infrastructure.Data\ATG.Infrastructure.Data.csproj", "{8F5289AD-FF70-4F6E-AB19-581CA7D3A39F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{E5CFF087-22BB-4227-89BC-1C557DC42A45}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E5CFF087-22BB-4227-89BC-1C557DC42A45}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E5CFF087-22BB-4227-89BC-1C557DC42A45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F5289AD-FF70-4F6E-AB19-581CA7D3A39F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F5289AD-FF70-4F6E-AB19-581CA7D3A39F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F5289AD-FF70-4F6E-AB19-581CA7D3A39F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F5289AD-FF70-4F6E-AB19-581CA7D3A39F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -34,6 +40,7 @@ Global
 		{C39C4AFD-9151-4C61-AB0A-A6C33246D32B} = {11ED4DAB-BEA1-455C-BBD3-D26C325786DB}
 		{5D184D21-A49B-438A-AF78-9FABF893FDFC} = {11ED4DAB-BEA1-455C-BBD3-D26C325786DB}
 		{E5CFF087-22BB-4227-89BC-1C557DC42A45} = {C39C4AFD-9151-4C61-AB0A-A6C33246D32B}
+		{8F5289AD-FF70-4F6E-AB19-581CA7D3A39F} = {5D184D21-A49B-438A-AF78-9FABF893FDFC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B0E87577-3901-4559-80DD-E50B1FBC17F0}
