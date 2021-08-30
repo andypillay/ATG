@@ -3,9 +3,24 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31613.86
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{11ED4DAB-BEA1-455C-BBD3-D26C325786DB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{836B34E9-C763-4A55-988D-8B3872303D13}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ATG.Application", "ATG.Application", "{112D5243-5383-4C5C-8BE5-5868852EB346}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ATG.Domain", "ATG.Domain", "{C39C4AFD-9151-4C61-AB0A-A6C33246D32B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ATG.Infrastructure", "ATG.Infrastructure", "{5D184D21-A49B-438A-AF78-9FABF893FDFC}"
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{112D5243-5383-4C5C-8BE5-5868852EB346} = {11ED4DAB-BEA1-455C-BBD3-D26C325786DB}
+		{C39C4AFD-9151-4C61-AB0A-A6C33246D32B} = {11ED4DAB-BEA1-455C-BBD3-D26C325786DB}
+		{5D184D21-A49B-438A-AF78-9FABF893FDFC} = {11ED4DAB-BEA1-455C-BBD3-D26C325786DB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B0E87577-3901-4559-80DD-E50B1FBC17F0}
