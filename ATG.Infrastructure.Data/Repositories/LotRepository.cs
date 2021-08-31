@@ -2,7 +2,7 @@
 
 namespace ATG.Infrastructure.Data.Repositories
 {
-    public class LotRepository : Repository, ILotRepository
+    public class LotRepository : ILotRepository
     {
         public Lot LoadCustomer()
         {

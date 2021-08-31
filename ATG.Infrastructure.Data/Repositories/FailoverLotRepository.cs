@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace ATG.Infrastructure.Data.Repositories
 {
-    public class FailoverLotRepository : Repository, IFailoverLotRepository
+    public class FailoverLotRepository : IFailoverLotRepository
     {
         public Lot GetLot(int id) => new Lot();
 

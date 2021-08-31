@@ -2,11 +2,11 @@
 
 namespace ATG.Infrastructure.Data.Repositories
 {
-    public class ArchivedRepository : Repository, IArchivedRepository
+    public class ArchivedRepository : IArchivedRepository
     {
         public Lot GetLot(int id)
         {
-            return new Lot();
+            return new Lot() { IsArchived = true };
         }
     }
 }

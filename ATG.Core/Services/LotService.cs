@@ -1,7 +1,5 @@
 ﻿using ATG.Domain.Models;
 using ATG.Infrastructure.Data.Repositories;
-using System;
-using System.Linq;
 
 namespace ATG.Core.Services
 {
@@ -10,35 +8,29 @@ namespace ATG.Core.Services
         private readonly IArchivedRepository _archivedRepository;
         private readonly IFailoverLotRepository _failoverLotRepository;
         private readonly ILotRepository _lotRepository;
+        private readonly IFailoverService _failoverService;
 
-        public LotService(IArchivedRepository archivedRepository, IFailoverLotRepository failoverLotRepository, ILotRepository lotRepository)
+        public LotService(IArchivedRepository archivedRepository, 
+            IFailoverLotRepository failoverLotRepository, 
+            ILotRepository lotRepository,
+            IFailoverService failoverService)
         {
             _archivedRepository = archivedRepository;
             _failoverLotRepository = failoverLotRepository;
             _lotRepository = lotRepository;
+            _failoverService = failoverService;
+
         }
 
-        public Lot GetLot(int id, bool isLotArchived, bool isFailoverModeEnabled = true)
+        public Lot GetLot(int id, bool isLotArchived)
         {
-            int maxFailedRequests = 50;
-            Lot lot = null;
-
-            var failoverLots = _failoverLotRepository.GetFailOverLotEntries();
-            var failedRequests = failoverLots.Where(failoverLotsEntry => failoverLotsEntry.DateTime > DateTime.Now.AddMinutes(10)).Count();
-
-            if ((failedRequests > maxFailedRequests) && isFailoverModeEnabled)
-            {
-                lot = _failoverLotRepository.GetLot(id);
-            }
-
-            if (lot.IsArchived && isLotArchived)
-            {
+            if (isLotArchived)
                 return _archivedRepository.GetLot(id);
-            }
-            else
-            {
-                return _lotRepository.LoadCustomer();
-            }
+           
+            Lot lot = _failoverService.ShouldProvideFailoverLots() ? _failoverLotRepository.GetLot(id) : _lotRepository.LoadCustomer();
+
+            return lot.IsArchived ? _archivedRepository.GetLot(id) : lot;
+
         }
 
 
