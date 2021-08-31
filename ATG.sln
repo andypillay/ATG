@@ -21,6 +21,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ATG.Core", "ATG.Core\ATG.Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATG.Tests", "ATG.Tests\ATG.Tests.csproj", "{8EA0CECF-7F2E-4DFE-8562-6F289425372C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Task 2", "Task 2", "{6CE44356-42D2-4013-BCE7-CF5E9E7A1B0A}"
+	ProjectSection(SolutionItems) = preProject
+		Task2.json = Task2.json
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Config|Any CPU = Config|Any CPU

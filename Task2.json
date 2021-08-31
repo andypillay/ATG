@@ -1,0 +1,7 @@
+{
+  "name": "Andy Pillay",
+  "project": "serverless JWT secret rotator",
+  "description": "For security, River Island required a way to change users JWT tokens without it being stored on site.",
+  "tools": [ "Visual Studio", "Github", "AWS", "Terraform", "Docker" ],
+  "technologies": [ "C#", ".Net Framework 5", "AWS Lambda" ]
+}
