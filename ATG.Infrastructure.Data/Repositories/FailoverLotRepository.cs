@@ -7,7 +7,7 @@ namespace ATG.Infrastructure.Data.Repositories
     {
         public Lot GetLot(int id) => new Lot();
 
-        public List<FailoverLots> GetFailOverLotEntries() =>           
+        public IEnumerable<FailoverLots> GetFailOverLotEntries() =>           
             new List<FailoverLots>();
     }
 }
